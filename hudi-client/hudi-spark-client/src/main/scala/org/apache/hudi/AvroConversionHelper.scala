@@ -29,7 +29,7 @@ import org.apache.avro.generic.GenericData.{Fixed, Record}
 import org.apache.avro.generic.{GenericData, GenericFixed, GenericRecord}
 import org.apache.avro.{LogicalTypes, Schema}
 import org.apache.spark.sql.Row
-import org.apache.spark.sql.avro.{IncompatibleSchemaException, SchemaConverters}
+import org.apache.spark.sql.avro.SchemaConverters
 import org.apache.spark.sql.catalyst.expressions.GenericRow
 import org.apache.spark.sql.catalyst.util.DateTimeUtils
 import org.apache.spark.sql.types._
@@ -366,3 +366,5 @@ object AvroConversionHelper {
     }
   }
 }
+
+class IncompatibleSchemaException(msg: String, ex: Throwable = null) extends Exception(msg, ex)
